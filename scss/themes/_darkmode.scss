@@ -1,0 +1,35 @@
+:root {
+    --main-background: #{$veryLightGrayishBlue};
+    --todo-background: #{$veryLightGray};
+    --todo-color-1: #{$veryDarkGrayishBlue};
+    --todo-color-2: #{$lightGrayishBlue};
+    --todo-color-3: #{$darkGrayishBlue};
+    --todo-delete-task: #{$veryDarkGrayishBlue};
+    --theme-icon: #{$moon};
+    --theme-background-mobile: #{$bgMobileLight};
+    --theme-background-desktop: #{$bgDesktopLight};
+}
+
+html[data-theme='light']{
+    --main-background: #{$veryLightGrayishBlue};
+    --todo-background: #{$veryLightGray};
+    --todo-color-1: #{$veryDarkGrayishBlue};
+    --todo-color-2: #{$lightGrayishBlue};
+    --todo-color-3: #{$darkGrayishBlue};
+    --todo-delete-task: #{$veryDarkGrayishBlue};
+    --theme-icon: #{$moon};
+    --theme-background-mobile: #{$bgMobileLight};
+    --theme-background-desktop: #{$bgDesktopLight};
+}
+
+html[data-theme='dark']{
+    --main-background: #{$veryDarkBlue};
+    --todo-background: #{$veryDarkDesaturatedBlue};
+    --todo-color-1: #{$lightGrayishBlue2};
+    --todo-color-2: #{$veryDarkGrayishBlue2};
+    --todo-color-3: #{$veryDarkGrayishBlue2};
+    --todo-delete-task: #{$darkGrayishBlue2};
+    --theme-icon: #{$sun};
+    --theme-background-mobile: #{$bgMobileDark};
+    --theme-background-desktop: #{$bgDesktopDark};
+}

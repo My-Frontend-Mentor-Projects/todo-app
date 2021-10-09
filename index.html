@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Frontend Mentor | Todo app</title>
+</head>
+
+<body>
+  <section class="wrapper">
+    <div class="intro-container" id="intro-container">
+      <h1 class="title" id="title">TODO</h1>
+      <span class="theme-switch" id="theme-switch"></span>
+      <!-- <img class="theme-switch" id="theme-switch" src="./images/icon-moon.svg" alt="Theme Switch Icon"> -->
+    </div>
+    <div class="todo-list" id="todo-list">
+      <div class="new-task unchecked" id="new-task">
+        <span class="custom-check"></span>
+        <input type="text" placeholder="Create a new todo...">
+      </div>
+      <div class="tasks-container">
+        <div class="task">
+          <span class="custom-check"></span>
+          <p class="task-text">jikkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkko</p>
+          <span class="delete-task">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+          </span>
+        </div>
+        <div class="task">
+          <span class="custom-check"></span>
+          <p class="task-text completed">jikkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkko</p>
+          <span class="delete-task">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+          </span>
+        </div>
+        <div class="tasks-info">
+          <span class="item-left" id="item-left">5 Items left</span>
+          <div class="categories" id="categories">
+            <span class="category">All</span>
+            <span class="category">Active</span>
+            <span class="category">Completed</span>
+          </div>
+          <span class="clear-completed" id="clear-completed">Clear Completed</span>
+        </div>
+      </div>
+      <div class="tasks-categories-container">
+        <div class="categories" id="categories">
+          <span>All</span>
+          <span>Active</span>
+          <span>Completed</span>
+        </div>
+      </div>
+    </div>
+    <p class="drag-drop-text" id="drag-drop-text">
+      Drag and drop to reorder the list
+    </p>
+  </section>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Rodrigo</a>.
+  </div> -->
+</body>
+<script src="./js/script.js"></script>
+
+</html>

@@ -1,0 +1,117 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: $fontLarge;
+    background: var(--main-background);
+    background-image: var(--theme-background-mobile);
+    background-repeat: no-repeat;
+    background-size: 100% 30vh;
+    transition: all 0.2s ease-in-out;
+
+    @include breakpoint-up(medium){
+        background-image: var(--theme-background-desktop);
+    }
+    
+    @include breakpoint-up(large){
+        background-size: 100% 40vh;
+    }
+}
+
+h1, h2, h3, span {
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    color: $veryLightGray;
+}
+
+p {
+    color: var(--todo-color-3);
+}
+
+input {
+    border: none;
+    outline: none;
+    color: var(--todo-color-1);
+    background-color: var(--todo-background);
+    padding-top: 0.3125rem;
+    font-size: $fontMedium;
+    caret-color: $brightBlue;
+
+    &::placeholder {
+        color: var(--todo-color-3);
+    }
+}
+
+.wrapper {
+    min-height: 100vh;
+    width: 90%;
+    max-width: 33.875rem;
+    margin: 3.125rem auto;
+    gap: 2.5rem;
+    @include flex(column, flex-start, center);
+    @include breakpoint-up(large) {
+        margin: 5rem auto;
+        gap: 3.125rem;
+    }
+
+    .intro-container {
+        min-height: 1.5rem;
+        width: 100%;
+        @include flex(row, space-between, center);
+
+        .title {
+            margin-top: 8px;
+            color: var(--todo-background);
+            letter-spacing: 0.75rem;
+        }
+
+        .theme-switch {
+            cursor: pointer;
+            user-select: none;
+            height: 1.625rem; 
+            width: 1.625rem;
+            background-image: var(--theme-icon);
+            background-repeat: no-repeat;
+        }
+    }
+
+    .todo-list {
+        width: 100%;
+
+        .custom-check {
+            height: 1.25rem;
+            width: 1.25rem;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid var(--todo-color-2);
+
+            &:hover {
+                border-color: $checkBackground;
+            }
+        }
+
+        .checked {
+            background: $checkBackground;
+            border: 0;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                content: url('../images/icon-check.svg');
+            }
+        }
+
+    }
+
+}

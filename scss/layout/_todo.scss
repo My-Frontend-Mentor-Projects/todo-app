@@ -1,0 +1,128 @@
+.todo-list {
+    position: relative;
+    gap: 1rem;
+    @include flex(column, flex-start, center);
+    padding-top: 0.1rem;
+    
+    .new-task, .tasks-container, .tasks-categories-container {
+        background-color: var(--todo-background);
+        border-radius: 0.3rem;
+        width: 100%;
+    }
+    
+    .new-task, .task, .tasks-info, .tasks-categories-container {
+        min-height: 3.125rem;
+
+        @include breakpoint-up(large) {
+            min-height: 4rem;
+        }
+    }
+
+    .new-task {
+        padding-left: 1.25rem;
+        gap: 1rem;
+        @include flex(row, flex-start, center);
+
+        input {
+            width: 85%;
+        }
+    }
+
+    .tasks-container {
+
+        .task {
+            position: relative;
+            padding: 0 1.25rem;
+            @include flex(row, flex-start, center);
+            gap: 0.8125rem;
+            border-bottom: 1px solid var(--todo-color-2);
+            cursor: pointer;
+            
+            .task-text {
+                color: var(--todo-color-1);
+                width: 80%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                @include breakpoint-up(medium) {
+                    width: 87%;
+                }
+            }
+
+            .completed {
+                text-decoration: line-through;
+                color: var(--todo-color-2);
+            }
+
+            .delete-task {
+                right: 1.25rem;
+                position: absolute;
+                cursor: pointer;
+
+                svg path{
+                    fill: var(--todo-delete-task);
+                }
+
+            }
+
+            @include breakpoint-up(large) {
+                .delete-task {
+                    visibility: hidden;
+                }
+                
+                &:hover {
+                    .delete-task {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
+        .tasks-info {
+            color: var(--todo-color-3);
+            font-size: $fontSmall;
+            padding: 1.125rem 1.3125rem;
+            @include flex(row, space-between, center);
+
+            .item-left, .clear-completed {
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--todo-color-1);
+                }
+            }
+        }
+
+        .categories {
+            @include breakpoint-down(small) {
+                display: none
+            }
+        }
+
+    }
+    
+    .tasks-categories-container {
+        @include flex(row, center, center);
+
+        @include breakpoint-up(medium) {
+            display: none
+        }
+    }
+
+    .categories {
+        font-size: $fontSmall;
+        font-weight: 700;
+        color: var(--todo-color-3);
+        gap: 1.3125rem;
+        @include flex(row, center, center);
+
+        .category {
+            cursor: pointer;
+
+            &:hover {
+                color: var(--todo-color-1);
+            }
+        }
+    }
+
+}
