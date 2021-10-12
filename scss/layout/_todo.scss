@@ -79,50 +79,53 @@
         }
 
         .tasks-info {
+            position: relative;
             color: var(--todo-color-3);
             font-size: $fontSmall;
             padding: 1.125rem 1.3125rem;
             @include flex(row, space-between, center);
 
-            .item-left, .clear-completed {
+            .items-left, .clear-completed {
                 cursor: pointer;
 
                 &:hover {
                     color: var(--todo-color-1);
                 }
             }
-        }
 
-        .categories {
-            @include breakpoint-down(small) {
-                display: none
+            .categories {
+                font-size: $fontSmall;
+                font-weight: 700;
+                color: var(--todo-color-3);
+                gap: 1.3125rem;
+                @include flex(row, center, center);
+
+                @include breakpoint-down(small) {
+                    position: absolute;
+                    top: 130%;
+                    left: 0;
+                    width: 100%;
+                    background-color: var(--todo-background);
+                    border-radius: 0.3rem;
+                    min-height: 3.125rem;
+    
+                }
+        
+                .category {
+                    cursor: pointer;            
+        
+                    &:hover {
+                        color: var(--todo-color-1);
+                    }
+                }
+
+            }
+        
+            .active {
+                color: $brightBlue !important;
             }
         }
 
     }
     
-    .tasks-categories-container {
-        @include flex(row, center, center);
-
-        @include breakpoint-up(medium) {
-            display: none
-        }
-    }
-
-    .categories {
-        font-size: $fontSmall;
-        font-weight: 700;
-        color: var(--todo-color-3);
-        gap: 1.3125rem;
-        @include flex(row, center, center);
-
-        .category {
-            cursor: pointer;
-
-            &:hover {
-                color: var(--todo-color-1);
-            }
-        }
-    }
-
 }

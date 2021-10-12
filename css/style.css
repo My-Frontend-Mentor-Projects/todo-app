@@ -339,6 +339,7 @@ template {
 
 html {
   box-sizing: border-box;
+  user-select: none;
 }
 
 *, *::before, *::after {
@@ -430,7 +431,6 @@ input::placeholder {
 
 .wrapper .intro-container .theme-switch {
   cursor: pointer;
-  user-select: none;
   height: 1.625rem;
   width: 1.625rem;
   background-image: var(--theme-icon);
@@ -464,6 +464,12 @@ input::placeholder {
   left: 50%;
   transform: translateX(-50%);
   content: url("../images/icon-check.svg");
+}
+
+@media (max-width: 39.9375em) {
+  .wrapper .drag-drop-text {
+    margin-top: 4rem;
+  }
 }
 
 :root {
@@ -591,6 +597,7 @@ html[data-theme='dark'] {
 }
 
 .todo-list .tasks-container .tasks-info {
+  position: relative;
   color: var(--todo-color-3);
   font-size: 0.95rem;
   padding: 1.125rem 1.3125rem;
@@ -600,34 +607,15 @@ html[data-theme='dark'] {
   align-items: center;
 }
 
-.todo-list .tasks-container .tasks-info .item-left, .todo-list .tasks-container .tasks-info .clear-completed {
+.todo-list .tasks-container .tasks-info .items-left, .todo-list .tasks-container .tasks-info .clear-completed {
   cursor: pointer;
 }
 
-.todo-list .tasks-container .tasks-info .item-left:hover, .todo-list .tasks-container .tasks-info .clear-completed:hover {
+.todo-list .tasks-container .tasks-info .items-left:hover, .todo-list .tasks-container .tasks-info .clear-completed:hover {
   color: var(--todo-color-1);
 }
 
-@media (max-width: 39.9375em) {
-  .todo-list .tasks-container .categories {
-    display: none;
-  }
-}
-
-.todo-list .tasks-categories-container {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 40em) {
-  .todo-list .tasks-categories-container {
-    display: none;
-  }
-}
-
-.todo-list .categories {
+.todo-list .tasks-container .tasks-info .categories {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--todo-color-3);
@@ -638,11 +626,27 @@ html[data-theme='dark'] {
   align-items: center;
 }
 
-.todo-list .categories .category {
+@media (max-width: 39.9375em) {
+  .todo-list .tasks-container .tasks-info .categories {
+    position: absolute;
+    top: 130%;
+    left: 0;
+    width: 100%;
+    background-color: var(--todo-background);
+    border-radius: 0.3rem;
+    min-height: 3.125rem;
+  }
+}
+
+.todo-list .tasks-container .tasks-info .categories .category {
   cursor: pointer;
 }
 
-.todo-list .categories .category:hover {
+.todo-list .tasks-container .tasks-info .categories .category:hover {
   color: var(--todo-color-1);
+}
+
+.todo-list .tasks-container .tasks-info .active {
+  color: #3a7bfd !important;
 }
 /*# sourceMappingURL=style.css.map */

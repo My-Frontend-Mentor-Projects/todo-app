@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    user-select:none;
 }
 
 *, *::before, *::after {
@@ -76,7 +77,6 @@ input {
 
         .theme-switch {
             cursor: pointer;
-            user-select: none;
             height: 1.625rem; 
             width: 1.625rem;
             background-image: var(--theme-icon);
@@ -112,6 +112,12 @@ input {
             }
         }
 
+    }
+
+    .drag-drop-text {
+        @include breakpoint-down(small) {
+            margin-top: 4rem;
+        }
     }
 
 }
