@@ -68,25 +68,26 @@ function loadTasks(status = 'all') {
     if (status === 'all') {
         // Load data on DOM
         tasksData.forEach((task) => loadTask(task.id, task.status, task.name));
-        // task Management
-        let tasks = document.querySelectorAll('.task');
-        tasks.forEach((task) => {
-            // set as active/completed
-            task.children[0].addEventListener('click', () => useCustomCheckbox(task.children[0]));
-            // delete task
-            task.children[2].addEventListener('click', () => {
-                task.remove();
-                deleteTaskFromLocalStorage(task.dataset.taskId);
-                itemsLeft.textContent = `${tasks.length} items left`;
-            });
-        })
-        itemsLeft.textContent = `${tasks.length} items left`;
+        itemsLeft.textContent = `${tasksData.length} items left`;
         categories[0].classList.add('active');
     } else {
         let filter = tasksData.filter(task => task.status === status);
         filter.forEach((task) => loadTask(task.id, task.status, task.name));
         itemsLeft.textContent = `${filter.length} items left`;
     }
+
+    let tasks = document.querySelectorAll('.task');
+    tasks.forEach((task) => {
+        // Set as active/completed
+        task.children[0].addEventListener('click', () => useCustomCheckbox(task.children[0]));
+        // delete task
+        task.children[2].addEventListener('click', () => {
+            task.remove();
+            deleteTaskFromLocalStorage(task.dataset.taskId);
+            itemsLeft.textContent = `${tasks.length} items left`;
+        });
+        
+    })
 }
 
 function updateTaskOnLocalStorage(id, status) {
@@ -121,6 +122,7 @@ function clearInputs() {
 
 // Set Light/Dark Theme
 themeSwitch.addEventListener('click', toggleDarkTheme);
+
 // Add new task
 inputs.children[0].addEventListener('click', () => useCustomCheckbox(inputs.children[0]));
 inputs.children[1].addEventListener('keyup', (e) => {
@@ -130,6 +132,7 @@ inputs.children[1].addEventListener('keyup', (e) => {
         clearInputs();
     }
 })
+
 // Filter Active/Completed Tasks
 categories.forEach((category, index) => {
     category.addEventListener('click', () => {
@@ -143,6 +146,7 @@ categories.forEach((category, index) => {
         loadTasks(category.dataset.category);
     });
 })
+
 // Clear completed tasks
 clearTasks.addEventListener('click', clearCompletedTasks);
 
